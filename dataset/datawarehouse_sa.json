@@ -1,0 +1,96 @@
+{
+	"name": "datawarehouse_sa",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dwService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "FISCAL_CAL_KEY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FISCAL_CAL_CD",
+				"type": "varchar"
+			},
+			{
+				"name": "FISCAL_CAL_DESCR",
+				"type": "varchar"
+			},
+			{
+				"name": "DATA_LOAD_DTTM",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "DATA_SOURCE_IND",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PERIOD_DESCR",
+				"type": "varchar"
+			},
+			{
+				"name": "PERIOD_END_DT",
+				"type": "date"
+			},
+			{
+				"name": "PERIOD_NBR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PERIOD_START_DT",
+				"type": "date"
+			},
+			{
+				"name": "UPDATE_DTTM",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "FISCAL_YEAR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ABS_PERIOD_NBR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "UDF1_CD",
+				"type": "varchar"
+			},
+			{
+				"name": "UDF1_DESCR",
+				"type": "varchar"
+			},
+			{
+				"name": "UDF2_CD",
+				"type": "varchar"
+			},
+			{
+				"name": "UDF2_DESCR",
+				"type": "varchar"
+			},
+			{
+				"name": "JOB_NBR",
+				"type": "bigint",
+				"precision": 19
+			}
+		],
+		"typeProperties": {
+			"schema": "dwadm2",
+			"table": "CD_SA"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

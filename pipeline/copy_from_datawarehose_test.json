@@ -1,0 +1,1136 @@
+{
+	"name": "copy_from_datawarehose_test",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_acct",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT TOP (1000) * FROM [dwadm2].[CD_ACCT]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ACCT_KEY",
+									"type": "Int64",
+									"physicalType": "bigint"
+								},
+								"sink": {
+									"name": "ACCT_KEY",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "SRC_ACCT_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "SRC_ACCT_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DATA_LOAD_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "DATA_LOAD_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "DATA_SOURCE_IND",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "DATA_SOURCE_IND",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "ACCT_INFO",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "ACCT_INFO",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF10_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF10_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF10_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF10_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF1_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF1_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF1_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF1_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF2_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF2_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF2_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF2_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF3_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF3_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF3_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF3_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF4_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF4_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF4_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF4_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF5_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF5_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF5_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF5_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF6_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF6_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF6_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF6_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF7_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF7_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF7_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF7_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF8_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF8_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF8_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF8_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF9_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF9_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF9_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF9_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EFF_END_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "EFF_END_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "EFF_START_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "EFF_START_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "JOB_NBR",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "JOB_NBR",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "datawarehouse_acct",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_test_db_acct",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "copy_addr",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT TOP (1000) * FROM [dwadm2].[CD_ADDR]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ADDR_KEY",
+									"type": "Int64",
+									"physicalType": "bigint"
+								},
+								"sink": {
+									"name": "ADDR_KEY",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDR_LINE1",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "ADDR_LINE1",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDR_LINE2",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "ADDR_LINE2",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDR_LINE3",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "ADDR_LINE3",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDR_LINE4",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "ADDR_LINE4",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "DATA_LOAD_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "DATA_LOAD_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "DATA_SOURCE_IND",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "DATA_SOURCE_IND",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "SRC_ADDR_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "SRC_ADDR_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDR_INFO",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "ADDR_INFO",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF10_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF10_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF10_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF10_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF1_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF1_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF1_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF1_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF2_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF2_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF2_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF2_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF3_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF3_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF3_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF3_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF4_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF4_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF4_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF4_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF5_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF5_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF5_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF5_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF6_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF6_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF6_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF6_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF7_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF7_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF7_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF7_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF8_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF8_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF8_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF8_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF9_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF9_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "UDF9_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "UDF9_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EFF_END_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "EFF_END_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "EFF_START_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "EFF_START_DTTM",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							},
+							{
+								"source": {
+									"name": "JOB_NBR",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "JOB_NBR",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTY",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "COUNTY",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTAL",
+									"type": "String",
+									"physicalType": "char"
+								},
+								"sink": {
+									"name": "POSTAL",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "STATE_CD",
+									"type": "String",
+									"physicalType": "char"
+								},
+								"sink": {
+									"name": "STATE_CD",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "STATE_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "STATE_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY_CD",
+									"type": "String",
+									"physicalType": "char"
+								},
+								"sink": {
+									"name": "COUNTRY_CD",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "COUNTRY_DESCR",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GEO_CODE",
+									"type": "String",
+									"physicalType": "char"
+								},
+								"sink": {
+									"name": "GEO_CODE",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "CROSS_STREET",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "CROSS_STREET",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SUBURB",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "SUBURB",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "datawarehouse_addr",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_test_db_addr",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "set_var_acct_rc",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "copy_acct",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "acct_rc",
+					"value": {
+						"value": "@string(activity('copy_acct').output.rowsCopied)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "set_var_addr_rc",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "copy_addr",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "addr_rc",
+					"value": {
+						"value": "@string(activity('copy_addr').output.rowsCopied)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "WebAPI_ACCT",
+				"description": "",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "set_var_acct_rc",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "@concat('http://S0146154/api/IncrLoadTest?tableIdentifier=ACCT&enviroment=PROD&startDate=2021-09-01%10:00:00.00&endDate=2021-09-02%10:00:00.00&adfNewRowsCount=',variables('acct_rc'),'&adfUpdatedRowsCount=', variables('acct_rc'))",
+						"type": "Expression"
+					},
+					"connectVia": {
+						"referenceName": "IntRuntmMDC",
+						"type": "IntegrationRuntimeReference"
+					},
+					"method": "GET"
+				}
+			},
+			{
+				"name": "Notificator",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "WebAPI_ACCT",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Notificator",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"Activity": "Copy Activity ACCT",
+						"Pipeline": "ACCT",
+						"ErrorMessage": {
+							"value": "@activity('WebAPI_ACCT').output.msg",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "WebAPI_ADDR",
+				"description": "",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "set_var_addr_rc",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "@concat('http://S0146154/api/IncrLoadTest?tableIdentifier=ADDR&enviroment=PROD&startDate=2021-09-01%10:00:00.00&endDate=2021-09-02%10:00:00.00&adfNewRowsCount=',variables('addr_rc'),'&adfUpdatedRowsCount=', variables('addr_rc'))",
+						"type": "Expression"
+					},
+					"connectVia": {
+						"referenceName": "IntRuntmMDC",
+						"type": "IntegrationRuntimeReference"
+					},
+					"method": "GET"
+				}
+			},
+			{
+				"name": "Notificator_copy6",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "WebAPI_ADDR",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Notificator",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"Activity": "Copy Activity ADDR",
+						"Pipeline": "ADDR",
+						"ErrorMessage": {
+							"value": "@activity('WebAPI_ADDR').output.msg",
+							"type": "Expression"
+						}
+					}
+				}
+			}
+		],
+		"variables": {
+			"acct_rc": {
+				"type": "String"
+			},
+			"addr_rc": {
+				"type": "String"
+			},
+			"date_rc": {
+				"type": "String"
+			},
+			"fiscal_cal_rc": {
+				"type": "String"
+			},
+			"per_rc": {
+				"type": "String"
+			},
+			"prem_rc": {
+				"type": "String"
+			},
+			"rate_rc": {
+				"type": "String"
+			},
+			"sa_rc": {
+				"type": "String"
+			},
+			"sqi_rc": {
+				"type": "String"
+			},
+			"uom_rc": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-09-14T13:00:54Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
